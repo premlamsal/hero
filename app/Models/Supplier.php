@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Supplier extends Model
+use Illuminate\Database\Eloquent\Builder;
+class Supplier extends BaseModel
 {
     protected $fillable = ['name', 'address', 'phone', 'mobile', 'tax_number', 'opening_balance', 'description'];
+
+
 
 }

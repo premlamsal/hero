@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Purchase extends Model
+use Illuminate\Database\Eloquent\Builder;
+class Purchase extends BaseModel
 {
     use HasFactory;
 
@@ -29,4 +29,6 @@ class Purchase extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
+
+
 }

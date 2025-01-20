@@ -20,6 +20,10 @@ return new class extends Migration {
             $table->string(column: 'opening_balance')->nullable();
             $table->string(column: 'balance')->nullable()->default(0);
             $table->text(column: 'description')->nullable();
+
+            $table->unsignedBigInteger(column: 'user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

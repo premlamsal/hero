@@ -12,14 +12,27 @@ return new class extends Migration {
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+
             $table->string(column: 'name');
+
             $table->string(column: 'address');
+
             $table->string(column: 'phone')->nullable();
+
             $table->string(column: 'mobile')->nullable();
+
             $table->string(column: 'tax_number')->nullable();
+
             $table->string(column: 'opening_balance')->nullable();
+
             $table->string(column: 'balance')->nullable()->default(0);
+
             $table->text(column: 'description')->nullable();
+
+            $table->unsignedBigInteger(column: 'user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }

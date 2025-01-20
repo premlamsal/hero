@@ -11,6 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('sales', function (Blueprint $table) {
+
             $table->id();
 
             $table->timestamp('invoice_date');
@@ -30,7 +31,13 @@ return new class extends Migration {
             $table->decimal('grand_total', 8, 2);
 
             $table->foreignId('customer_id')->constrained()->onDelete('cascade'); // Assumes customers table exists
+
+            $table->unsignedBigInteger(column: 'user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+
             $table->timestamps();
+
         });
     }
 

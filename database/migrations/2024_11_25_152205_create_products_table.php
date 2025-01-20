@@ -22,10 +22,15 @@ return new class extends Migration {
             $table->string('hsn_code');
             $table->string(column: 'bar_code');
             $table->text(column: 'description');
+
             $table->unsignedBigInteger('unit_id');
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
+
             $table->unsignedBigInteger(column: 'category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->unsignedBigInteger(column: 'user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

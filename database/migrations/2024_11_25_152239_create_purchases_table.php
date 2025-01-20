@@ -31,6 +31,10 @@ return new class extends Migration {
 
             $table->foreignId('supplier_id')->constrained()->onDelete('cascade'); // Assumes supplier table exists
             $table->timestamps();
+
+            $table->unsignedBigInteger(column: 'user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

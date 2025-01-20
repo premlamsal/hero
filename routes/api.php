@@ -25,15 +25,15 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // units routes
-Route::get('/units', [UnitController::class, 'index']);
+Route::get('/units', [UnitController::class, 'index'])->middleware('auth:sanctum');
 
-Route::get('/units/{id}', [UnitController::class, 'show']);
+Route::get('/units/{id}', [UnitController::class, 'show'])->middleware('auth:sanctum');
 
-Route::put('/units/{id}', [UnitController::class, 'update']);
+Route::put('/units/{id}', [UnitController::class, 'update'])->middleware('auth:sanctum');
 
-Route::delete('/units/{id}', [UnitController::class, 'destroy']);
+Route::delete('/units/{id}', [UnitController::class, 'destroy'])->middleware('auth:sanctum');
 
-Route::post('/units', [UnitController::class, 'store']);
+Route::post('/units', [UnitController::class, 'store'])->middleware('auth:sanctum');
 
 
 // categories routes

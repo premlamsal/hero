@@ -11,6 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('purchase_details', function (Blueprint $table) {
+
             $table->id();
 
             $table->foreignId('purchase_id')->constrained('purchases')->onDelete('cascade'); // Reference to the purchases table
@@ -26,6 +27,7 @@ return new class extends Migration {
             $table->foreignId('unit_id')->constrained('units')->onDelete('cascade'); // Assumes units table exists
 
             $table->timestamps();
+
         });
     }
 
